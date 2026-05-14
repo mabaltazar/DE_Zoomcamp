@@ -54,7 +54,7 @@ A fully containerized data pipeline that:
 
 ## 🗂️ Architecture
 
-\```
+```
 Internet (NYC TLC data)
     ↓
 taxi_ingest container (Python + pandas)
@@ -65,7 +65,7 @@ pgAdmin container (port 8085)
     
 All containers communicate via Docker Compose network.
 Data persists in named Docker volumes.
-\```
+```
 
 ---
 

@@ -21,7 +21,7 @@ A fully containerized data ingestion pipeline that downloads NYC Yellow Taxi tri
 ![click](https://img.shields.io/badge/click-4CAF50?style=flat&logo=python&logoColor=white)
 
 ### 🗂️ Architecture
-\```
+```
 Internet (NYC TLC data)
     ↓
 taxi_ingest container (Python + pandas + click)
@@ -32,7 +32,7 @@ pgAdmin container (port 8085)
 
 All containers communicate via Docker Compose network.
 Data persists in named Docker volumes.
-\```
+```
 
 ### 📚 Topics Covered
 **Docker** — container lifecycle, volumes, networking, Dockerfiles, layer caching, Docker Compose for multi-container orchestration
