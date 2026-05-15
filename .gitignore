@@ -1,4 +1,20 @@
+# State files — auto-generated, contain sensitive resource details
+*.tfstate
+*.tfstate.backup
+
+# Terraform working directory — downloaded providers and plugins
+.terraform/
+.terraform.lock.hcl
+
+# Ignore the keys folder anywhere in the repo
+keys/
+
+# Ignore all JSON files (service account keys)
+*.json
+
+# Parquet output files from ingestion
 *.parquet
+*.csv.gz
 
 # Personal notes
 notes/
