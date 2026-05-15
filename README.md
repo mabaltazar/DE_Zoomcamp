@@ -10,7 +10,14 @@ My notes, code, and projects from the
 ### 🏗️ What I Built
 A fully containerized data ingestion pipeline that downloads NYC Yellow Taxi trip data (~1.4M rows), processes it with pandas, and loads it into PostgreSQL — parameterized via CLI and reproducible on any machine via Docker.
 
+A cloud infrastructure setup using Terraform that provisions a GCS bucket (Data Lake) and BigQuery dataset (Data Warehouse) on GCP.
+
+A reproducible Codespaces dev environment using devcontainer that auto-installs all tools on every rebuild — built beyond the course scope.
+
+
 ### 🛠️ Stack
+
+#### Docker & Data Ingestion
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
@@ -19,6 +26,11 @@ A fully containerized data ingestion pipeline that downloads NYC Yellow Taxi tri
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat&logo=sqlalchemy&logoColor=white)
 ![uv](https://img.shields.io/badge/uv-DE5FE9?style=flat&logo=astral&logoColor=white)
 ![click](https://img.shields.io/badge/click-4CAF50?style=flat&logo=python&logoColor=white)
+
+#### Cloud Infrastructure
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white)
+![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat&logo=googlebigquery&logoColor=white)
 
 ### 🗂️ Architecture
 ```
@@ -41,13 +53,20 @@ Data persists in named Docker volumes.
 
 **Data Ingestion** — chunked CSV ingestion with pandas, type handling, SQLAlchemy for database connectivity parameterized CLI with click
 
+**Terraform & GCP** — IaC concepts, provisioning GCS and BigQuery, IAM setup, full `init → plan → apply → destroy` workflow
+
+**Dev Environment** *(beyond course scope)* — GitHub Codespaces devcontainer with auto-install of Terraform, gcloud, Docker, and git-lfs
+
 ### 📁 Key Files
 | File | Description    |
 |------|-------------|
-| `pipeline/ingest_data.py` | Parameterized ingestion script |
-| `pipeline/Dockerfile` | Container definition for ingestion |
-| `pipeline/docker-compose.yaml` | Full local stack (Postgres + pgAdmin) |
-| `pipeline/pyproject.toml` | Python dependencies |
+| `docker-sql/pipeline/ingest_data.py` | Parameterized ingestion script |
+| `docker-sql/pipeline/Dockerfile` | Container definition for ingestion |
+| `docker-sql/pipeline/docker-compose.yaml` | Full local stack (Postgres + pgAdmin) |
+| `docker-sql/pipeline/pyproject.toml` | Python dependencies |
+| `terraform-gcp/main.tf` | GCP resources |
+| `terraform-gcp/variables.tf` | Input variables |
+| `.devcontainer/devcontainer.json` | Codespaces configuration |
 
 ---
 
