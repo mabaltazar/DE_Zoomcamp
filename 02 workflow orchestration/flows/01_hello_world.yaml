@@ -8,7 +8,7 @@ inputs:
 
 concurrency:
   behavior: FAIL
-  limit: 2
+  limit: 2 
 
 variables:
   welcome_message: "Hello, {{ inputs.name }}!"
