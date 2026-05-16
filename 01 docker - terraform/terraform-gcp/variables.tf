@@ -14,13 +14,13 @@ variable "project" {
 variable "region" {
   description = "Region"
   #your region, ex: us-central1, us-east1, etc
-  default     = "us-central1"
+  default     = "asia-southeast1"
 }
 
 variable "location" {
   description = "Project Location"
   #your location, ex: US, EU, etc
-  default     = "US"
+  default     = "asia-southeast1"
 }
 
 variable "bq_dataset_name" {
@@ -32,7 +32,7 @@ variable "bq_dataset_name" {
 variable "gcs_bucket_name" {
   description = "My Storage Bucket Name"
   #name of bucket must be globally unique.
-  default     = "terraform-demo-terra-bucket"
+  default     = "de-course-496106-terra-bucket"
 }
 
 variable "gcs_storage_class" {

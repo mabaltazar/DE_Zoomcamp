@@ -23,6 +23,7 @@ notes/
 __pycache__/
 *.py[codz]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -169,11 +170,14 @@ activemq-data/
 *.sage.py
 
 # Environments
+.env.local
+.env.*.local
 .env
 .envrc
 .venv
 env/
 venv/
+.venv/
 ENV/
 env.bak/
 venv.bak/
