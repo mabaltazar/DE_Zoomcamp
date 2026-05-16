@@ -70,9 +70,9 @@ Data persists in named Docker volumes.
 
 ---
 
-## 🔄 Module 2: Workflow Orchestration 🚧 In Progress
+## 🔄 Module 2: Workflow Orchestration ✅
 
-### 🏗️ What I'm Building
+### 🏗️ What I Built
 Two complete data pipelines orchestrated with Kestra — one ETL pipeline loading NYC Taxi data into a local PostgreSQL database, and one ELT pipeline loading the full historical dataset into Google Cloud Storage and BigQuery. Both pipelines include scheduling, backfilling, and idempotent loading.
 
 Also solved a real-world engineering challenge: configuring Kestra secrets
