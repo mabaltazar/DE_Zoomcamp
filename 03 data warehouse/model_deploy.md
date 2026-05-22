@@ -1,6 +1,6 @@
 Steps
 gcloud auth login
-bq --project_id taxi-rides-ny extract -m nytaxi.tip_model gs://taxi_ml_model/tip_model
+bq --project_id de-course-496106 extract -m zoomcamp.tip_model gs://taxi_ml_model/tip_model
 mkdir /tmp/model
 gsutil cp -r gs://taxi_ml_model/tip_model /tmp/model
 mkdir -p serving_dir/tip_model/1

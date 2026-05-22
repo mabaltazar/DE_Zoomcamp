@@ -131,13 +131,79 @@ without Enterprise edition using Base64-encoded env vars via Docker Compose
 
 ---
 
+## 🏛️ Module 3: Data Warehouse ✅
+
+### 🏗️ What I Learned
+The theory and practice of data warehousing using BigQuery — covering OLAP vs
+OLTP fundamentals, BigQuery's serverless architecture, table design strategies
+for cost and performance optimization, the internals of how BigQuery processes
+queries at petabyte scale, and how to train and serve ML models directly in
+BigQuery using only SQL.
+
+### 🛠️ Stack
+![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat&logo=googlebigquery&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+
+### 🗂️ Architecture
+```
+BigQuery Internal Architecture
+──────────────────────────────
+Client (REST API / Web UI / bq CLI)
+    ↓
+Dremel — distributed query execution tree
+    ├── Root Server    → coordinates aggregation
+    ├── Mixer Nodes    → combine partial results
+    └── Leaf Nodes     → read columnar data from storage
+         ↕ Jupiter (petabit network)
+Colossus — distributed columnar storage (Capacitor format)
+
+Partition pruning → skips entire date partitions
+Cluster pruning  → skips storage blocks within partitions
+Both together    → maximum cost and performance efficiency
+```
+
+### 📚 Topics Covered
+**OLAP vs OLTP** — purpose, design, backup, productivity, and user
+differences between transactional and analytical systems
+
+**Data Warehouse Structure** — raw data, metadata, summary layers,
+staging areas, data marts, and user access patterns
+
+**BigQuery Architecture** — serverless design, storage/compute separation,
+on-demand vs flat-rate pricing, cost reduction strategies
+
+**Partitioning** — time-unit, ingestion time, and integer range types;
+daily/hourly/monthly/yearly granularity; 4,000 partition limit
+
+**Clustering** — block-level pruning, column order significance,
+supported types, automatic re-clustering, combining with partitioning
+
+**Best Practices** — avoiding `SELECT *`, partition filtering,
+JOIN optimization, denormalization, approximate aggregations
+
+**BigQuery Internals** — Colossus, Jupiter, Dremel, columnar storage,
+query execution tree, why column-oriented storage enables fast analytics
+
+**BigQuery ML** — `CREATE MODEL` → `ML.EVALUATE` → `ML.PREDICT`
+workflow; regression, classification, clustering, time series, anomaly detection
+
+### 📁 Key Files
+| File | Description |
+|------|-------------|
+| `'03 data warehouse'/big_query_ml.sql | |
+| `'03 data warehouse'/big_query.sql | |
+| `'03 data warehouse'/model_deploy.md | |
+
+---
+
 ## 📊 Progress
 
 | Module | Topic | Status |
 |--------|-------|--------|
 | 1 | Containerization & Infrastructure | ✅ Complete |
 | 2 | Workflow Orchestration | ✅ Complete |
-| 3 | Data Warehousing | ⏳ Not Started |
+| 3 | Data Warehouse | ✅ Complete |
 | 4 | Analytics Engineering | ⏳ Not Started |
 | 5 | Batch Processing | ⏳ Not Started |
 | 6 | Streaming | ⏳ Not Started |
