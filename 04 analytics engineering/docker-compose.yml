@@ -1,0 +1,29 @@
+services:
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: dbt_duckdb
+
+    volumes:
+      - .:/usr/app
+      # Mounts your entire module4/ folder into /usr/app
+      # This means:
+      #   - Edit dbt models locally → container sees changes instantly
+      #   - Downloaded data files persist on your machine after container stops
+      #   - DuckDB file persists on your machine after container stops
+      #   - No rebuild needed when you change dbt models
+
+    working_dir: /usr/app/taxi_rides_ny
+    # Default directory is the dbt project
+    # So 'dbt run' works without cd-ing first
+
+    stdin_open: true
+    tty: true
+    # Keeps the container running with an interactive terminal
+    # Equivalent to 'docker run -it'
+
+    environment:
+      - DBT_PROFILES_DIR=/root/.dbt
+      # Explicitly points dbt to the profiles directory
