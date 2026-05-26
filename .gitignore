@@ -1,3 +1,21 @@
+# DBT
+04 analytics engineering/taxi_rides_ny/target/
+04 analytics engineering/taxi_rides_ny/dbt_packages/
+04 analytics engineering/taxi_rides_ny/logs/
+
+# DUCKDB
+04 analytics engineering/*.duckdb
+04 analytics engineering/*.duckdb.wal
+
+# DATA
+04 analytics engineering/data/
+
+# PYTHON
+04 analytics engineering/.venv/
+04 analytics engineering/__pycache__/
+04 analytics engineering/*.pyc
+
+
 # State files — auto-generated, contain sensitive resource details
 *.tfstate
 *.tfstate.backup
