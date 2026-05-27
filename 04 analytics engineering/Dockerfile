@@ -39,7 +39,7 @@ COPY . .
 
 # DBT PROFILE
 RUN mkdir -p /root/.dbt
-COPY profiles.yml /root/.dbt/profiles.yml
+#COPY profiles.yml /root/.dbt/profiles.yml
 # dbt looks for profiles.yml at ~/.dbt/profiles.yml by default
 # Copying it here means every dbt command finds it automatically
 

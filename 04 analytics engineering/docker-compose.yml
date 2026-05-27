@@ -1,14 +1,47 @@
 services:
-  dbt:
+  ingestion:
     build:
       context: .
       dockerfile: Dockerfile
-
-    container_name: dbt_duckdb
-
+    container_name: nyc_taxi_ingestion
     volumes:
       - .:/usr/app
       - /usr/app/.venv
+    working_dir: /usr/app
+    # Run the ingestion script automatically when spun up, then stop cleanly
+    command: ["python", "ingest.py"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# This docker-compose.yml file defines a service for running dbt with DuckDB.
+# It builds a Docker image from the Dockerfile in the current directory and mounts the entire module4/ folder into the container, allowing for easy development and data persistence.
+#services:
+#  dbt:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+
+#    container_name: dbt_duckdb
+
+#    volumes:
+#      - .:/usr/app
+#      - /usr/app/.venv
       # Mounts your entire module4/ folder into /usr/app
       # This means:
       #   - Edit dbt models locally → container sees changes instantly
@@ -16,15 +49,15 @@ services:
       #   - DuckDB file persists on your machine after container stops
       #   - No rebuild needed when you change dbt models
 
-    working_dir: /usr/app/taxi_rides_ny
+#    working_dir: /usr/app/taxi_rides_ny
     # Default directory is the dbt project
     # So 'dbt run' works without cd-ing first
 
-    stdin_open: true
-    tty: true
+#    stdin_open: true
+#    tty: true
     # Keeps the container running with an interactive terminal
     # Equivalent to 'docker run -it'
 
-    environment:
-      - DBT_PROFILES_DIR=/root/.dbt
+#    environment:
+#      - DBT_PROFILES_DIR=/root/.dbt
       # Explicitly points dbt to the profiles directory
