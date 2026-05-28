@@ -138,9 +138,9 @@ Trained Model (stored in BigQuery)
 ## 📁 Key Files
 | File | Description |
 |------|-------------|
-| `'03 data warehouse'/big_query_ml.sql | |
-| `'03 data warehouse'/big_query.sql | |
-| `'03 data warehouse'/model_deploy.md | |
+| `'03 data warehouse'/big_query_ml.sql` | BigQuery ML examples |
+| `'03 data warehouse'/big_query.sql` | Partitioning and clustering examples |
+| `'03 data warehouse'/model_deploy.md` | ML model deployment notes |
 
 ---
 

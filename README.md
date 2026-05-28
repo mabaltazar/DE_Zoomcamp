@@ -191,10 +191,70 @@ workflow; regression, classification, clustering, time series, anomaly detection
 ### 📁 Key Files
 | File | Description |
 |------|-------------|
-| `'03 data warehouse'/big_query_ml.sql | |
-| `'03 data warehouse'/big_query.sql | |
-| `'03 data warehouse'/model_deploy.md | |
+| `'03 data warehouse'/big_query_ml.sql` | BigQuery ML examples |
+| `'03 data warehouse'/big_query.sql` | Partitioning and clustering examples |
+| `'03 data warehouse'/model_deploy.md` | ML model deployment notes |
 
+---
+
+## 📊 Module 4: Analytics Engineering 🚧
+
+### 🏗️ What I'm Building
+A complete dbt project transforming raw NYC Taxi trip data into a dimensional
+model following Kimball's star schema methodology — staging models, an
+intermediate union layer, dimension tables, and a fact table combining yellow
+and green taxi data across 2019–2020.
+
+### 🛠️ Stack
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat&logo=dbt&logoColor=white)
+![DuckDB](https://img.shields.io/badge/DuckDB-FFC107?style=flat&logo=duckdb&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=flat&logo=docker&logoColor=white)
+![uv](https://img.shields.io/badge/uv-DE5FE9?style=flat&logo=astral&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+
+### 🗂️ Architecture
+```
+sources (raw data in DuckDB prod schema)
+    ↓
+stg_green_tripdata    stg_yellow_tripdata    taxi_zone_lookup (seed)
+         ↓                    ↓                      ↓
+         └──────────┬─────────┘              dim_zones (mart)
+                    ↓
+           int_trips_unioned (intermediate)
+                    ↓
+               fct_trips (mart)
+                    ↓
+         report_monthly_revenue (mart)
+```
+
+### 📚 Topics Covered
+**Analytics Engineering** — why the role exists, ETL vs ELT,
+Kimball's dimensional modeling, star schema, the kitchen analogy
+
+**dbt Fundamentals** — Core vs Cloud, Fusion engine, project structure,
+materializations (view/table/incremental/ephemeral)
+
+**dbt Sources** — `sources.yml`, `source()` vs `ref()`,
+dependency graph, naming conventions (`stg_`, `int_`, `fct_`, `dim_`)
+
+**dbt Models** — staging, intermediate, and mart layers;
+reconciling yellow and green taxi schemas; business context in data decisions
+
+**Seeds and Macros** — CSV lookup tables, Jinja templating,
+reusable SQL functions as single source of truth
+
+
+### 📁 Key Files
+| File | Description |
+|------|-------------|
+| `'04 analytics engineering'/taxi_rides_ny/models/staging/stg_green_tripdata.sql` | Green taxi staging |
+| `'04 analytics engineering'/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql` | Yellow taxi staging |
+| `'04 analytics engineering'/taxi_rides_ny/models/intermediate/int_trips_unioned.sql` | Combined trips |
+| `'04 analytics engineering'/taxi_rides_ny/models/marts/fct_trips.sql` | Fact table |
+| `'04 analytics engineering'/taxi_rides_ny/models/marts/dim_zones.sql` | Zone dimension |
+| `'04 analytics engineering'/taxi_rides_ny/macros/get_payment_type_description.sql` | Payment type macro |
+| `'04 analytics engineering'/ingest.py` | Data download and DuckDB ingestion |
 ---
 
 ## 📊 Progress
@@ -204,6 +264,7 @@ workflow; regression, classification, clustering, time series, anomaly detection
 | 1 | Containerization & Infrastructure | ✅ Complete |
 | 2 | Workflow Orchestration | ✅ Complete |
 | 3 | Data Warehouse | ✅ Complete |
-| 4 | Analytics Engineering | ⏳ Not Started |
-| 5 | Batch Processing | ⏳ Not Started |
-| 6 | Streaming | ⏳ Not Started |
+| 4 | Analytics Engineering | 🚧 In Progress |
+| 5 | Data Platforms | ⏳ Not Started |
+| 6 | Batch Processing | ⏳ Not Started |
+| 7 | Streaming | ⏳ Not Started |
