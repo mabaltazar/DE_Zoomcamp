@@ -1,3 +1,5 @@
+.user.yml
+
 # DBT
 04 analytics engineering/taxi_rides_ny/target/
 04 analytics engineering/taxi_rides_ny/dbt_packages/

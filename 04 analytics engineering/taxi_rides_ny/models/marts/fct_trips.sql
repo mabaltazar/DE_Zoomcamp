@@ -5,4 +5,38 @@ Find and fix duplicates — there are quite a few in this dataset. Some come fro
 Enrich payment_type (there is a seed for this in the repo).
 */
 
-select 1
+with trip_unioned as (
+    select * from {{ ref('int_unioned') }}
+),
+
+trip_deduped as (
+    select
+        trip_id,
+        vendor_id,
+        pickup_datetime,
+        dropoff_datetime,
+        passenger_count,
+        pickup_longitude,
+        pickup_latitude,
+        dropoff_longitude,
+        dropoff_latitude,
+        store_and_fwd_flag,
+        payment_type,
+        fare_amount,
+        extra,
+        mta_tax,
+        tip_amount,
+        tolls_amount,
+        improvement_surcharge,
+        total_amount,
+        congestion_surcharge
+    from (
+        select
+            *,
+            row_number() over (partition by trip_id order by pickup_datetime desc) as rn
+        from trip_unioned
+    ) t
+    where rn = 1
+)
+
+select * from trip_deduped

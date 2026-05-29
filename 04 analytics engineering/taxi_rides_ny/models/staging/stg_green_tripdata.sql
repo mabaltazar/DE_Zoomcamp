@@ -20,7 +20,8 @@ select
     cast(ehail_fee as numeric) as ehail_fee,
     cast(improvement_surcharge as numeric) as improvement_surcharge,
     cast(total_amount as numeric) as total_amount,
-    cast(payment_type as int) as payment_type
+    cast(payment_type as int) as payment_type,
+    {{ get_payment_type_description('payment_type') }} as payment_type_description
 
 from {{ source('raw_data', 'green_tripdata') }}
 where vendorid is not null
