@@ -13,6 +13,15 @@ create_key as (
         dropoff_datetime
 
     from green_data
+),
+
+check_key as (
+    select
+        trip_id,
+        count(*) as count
+    from create_key
+    group by trip_id
 )
 
-select * from create_key
+select * from check_key
+where count > 1

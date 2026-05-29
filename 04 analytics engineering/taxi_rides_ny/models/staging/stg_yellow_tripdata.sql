@@ -6,7 +6,7 @@ with yellow_tripdata as (
 renamed as (
     
     select 
-        {{ dbt_utils.generate_surrogate_key(['vendorid', 'ratecodeid','pulocationid', 'dolocationid']) }} as trip_id,
+        {{ dbt_utils.generate_surrogate_key(['vendorid', 'ratecodeid','pulocationid', 'dolocationid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'total_amount' ]) }} as trip_id,
         cast(vendorid as int) as vendor_id,
         cast(ratecodeid as int) as rate_code_id,
         cast(pulocationid as int) as pickup_location_id,

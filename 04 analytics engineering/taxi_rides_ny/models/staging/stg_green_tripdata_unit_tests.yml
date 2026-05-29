@@ -1,0 +1,28 @@
+version: 2
+
+unit_tests:
+  - name: test_payment_type_mapping
+    description: >
+      Verify that payment type integer codes map to the correct
+      human-readable descriptions via the get_payment_type_description macro.
+      Tests edge cases: valid codes and an unknown code.
+    model: stg_green_tripdata
+
+    given:
+      - input: source('raw_data', 'green_tripdata')
+        # Mock data that replaces the real source table for this test.
+        # You only need to provide columns your model actually uses.
+        rows:
+          - {trip_id: '1', payment_type: 1, vendor_id: 1}
+          - {trip_id: '2', payment_type: 2, vendor_id: 1}
+          - {trip_id: '3', payment_type: 5, vendor_id: 2}
+          - {trip_id: '4', payment_type: 9, vendor_id: 2}
+          # payment_type 9 doesn't exist — tests the 'else' branch of the macro
+
+    expect:
+      rows:
+        - {trip_id: '1', payment_type_description: 'Credit card'}
+        - {trip_id: '2', payment_type_description: 'Cash'}
+        - {trip_id: '3', payment_type_description: 'Unknown'}
+        - {trip_id: '4', payment_type_description: 'Empty'}
+        # Only specify the columns you care about testing

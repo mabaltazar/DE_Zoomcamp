@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_green_tripdata
+    description: Staged green taxi data with cleaned types and renamed columns
+    columns:
+      - name: trip_id
+        description: Primary key — unique identifier for each trip
+        tests:
+          - unique
+          - not_null
+
+      - name: vendor_id
+        tests:
+          - not_null
+
+      - name: payment_type
+        description: Payment method code (1=Credit card, 2=Cash, etc.)
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+
+      - name: pickup_location_id
+        description: Taxi zone where the trip started
+        tests:
+          - relationships:
+              to: ref('taxi_zone_lookup')
+              field: locationid

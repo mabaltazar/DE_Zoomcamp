@@ -1,9 +1,13 @@
 with green_data as (
-    select * from {{ ref('stg_green_tripdata') }}
+    select *,
+        'Green' as taxi_color
+     from {{ ref('stg_green_tripdata') }}
 ),
 
 yellow_data as (
-    select * from {{ ref('stg_yellow_tripdata') }}
+    select *,
+        'Yellow' as taxi_color
+     from {{ ref('stg_yellow_tripdata') }}
 ),
 
 trips_unioned as (

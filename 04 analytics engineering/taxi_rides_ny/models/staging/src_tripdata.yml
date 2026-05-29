@@ -7,6 +7,15 @@ sources:
     schema: prod
     tables:
       - name: yellow_tripdata
+        loaded_at_field: tpep_pickup_datetime
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day}
       - name: green_tripdata
+        loaded_at_field: lpep_pickup_datetime
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day}
+
 
     

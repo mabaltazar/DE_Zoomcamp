@@ -5,24 +5,16 @@ Find and fix duplicates — there are quite a few in this dataset. Some come fro
 Enrich payment_type (there is a seed for this in the repo).
 */
 
-with trip_unioned as (
-    select * from {{ ref('int_unioned') }}
+with trips as (
+    select * from {{ ref('int_deduped') }}
 ),
 
-trip_deduped as (
+trips_fare_amount as (
     select
         trip_id,
         vendor_id,
-        rate_code_id,
-        pickup_location_id,
-        dropoff_location_id
-    from (
-        select
-            *,
-            row_number() over (partition by trip_id order by pickup_datetime desc) as rn
-        from trip_unioned
-    ) t
-    where rn = 1
+        fare_amount
+    from trips
 )
 
-select * from trip_deduped
+select * from trips_fare_amount
