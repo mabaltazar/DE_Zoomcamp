@@ -13,23 +13,9 @@ trip_deduped as (
     select
         trip_id,
         vendor_id,
-        pickup_datetime,
-        dropoff_datetime,
-        passenger_count,
-        pickup_longitude,
-        pickup_latitude,
-        dropoff_longitude,
-        dropoff_latitude,
-        store_and_fwd_flag,
-        payment_type,
-        fare_amount,
-        extra,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
-        improvement_surcharge,
-        total_amount,
-        congestion_surcharge
+        rate_code_id,
+        pickup_location_id,
+        dropoff_location_id
     from (
         select
             *,
