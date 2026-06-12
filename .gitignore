@@ -1,21 +1,21 @@
 .user.yml
 
 # DBT
-04 analytics engineering/taxi_rides_ny/target/
-04 analytics engineering/taxi_rides_ny/dbt_packages/
-04 analytics engineering/taxi_rides_ny/logs/
+04-analytics-engineering/taxi_rides_ny/target/
+04-analytics-engineering/taxi_rides_ny/dbt_packages/
+04-analytics-engineering/taxi_rides_ny/logs/
 
 # DUCKDB
-04 analytics engineering/*.duckdb
-04 analytics engineering/*.duckdb.wal
+04-analytics-engineering/*.duckdb
+04-analytics-engineering/*.duckdb.wal
 
 # DATA
-04 analytics engineering/data/
+04-analytics-engineering/data/
 
 # PYTHON
-04 analytics engineering/.venv/
-04 analytics engineering/__pycache__/
-04 analytics engineering/*.pyc
+04-analytics-engineering/.venv/
+04-analytics-engineering/__pycache__/
+04-analytics-engineering/*.pyc
 
 
 # State files — auto-generated, contain sensitive resource details
@@ -267,7 +267,7 @@ logs/runs
 logs/*.log
 *.py[cod]
 logs/queries
-05 data platform/first-pipeline/bruin-pipeline/duckdb.db
+05-data-platform/first-pipeline/bruin-pipeline/duckdb.db
 
 # Data files
 *.csv
