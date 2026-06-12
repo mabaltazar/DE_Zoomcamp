@@ -267,4 +267,23 @@ logs/runs
 logs/*.log
 *.py[cod]
 logs/queries
-05
+05 data platform/first-pipeline/bruin-pipeline/duckdb.db
+
+# Data files
+*.csv
+*.csv.gz
+*.parquet
+*.duckdb
+
+# Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# dbt
+target/
+dbt_packages/
+logs/
