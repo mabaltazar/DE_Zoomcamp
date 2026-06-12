@@ -60,12 +60,12 @@ Data persists in named Docker volumes.
 ### 📁 Key Files
 | File | Description    |
 |------|-------------|
-| `'01 docker-terraform'/docker-sql/pipeline/ingest_data.py` | Parameterized ingestion script |
-| `'01 docker-terraform'/docker-sql/pipeline/Dockerfile` | Container definition for ingestion |
-| `'01 docker-terraform'/docker-sql/pipeline/docker-compose.yaml` | Full local stack (Postgres + pgAdmin) |
-| `'01 docker-terraform'/docker-sql/pipeline/pyproject.toml` | Python dependencies |
-| `'01 docker-terraform'/terraform-gcp/main.tf` | GCP resources |
-| `'01 docker-terraform'/terraform-gcp/variables.tf` | Input variables |
+| `01-docker-terraform/docker-sql/pipeline/ingest_data.py` | Parameterized ingestion script |
+| `01-docker-terraform/docker-sql/pipeline/Dockerfile` | Container definition for ingestion |
+| `01-docker-terraform/docker-sql/pipeline/docker-compose.yaml` | Full local stack (Postgres + pgAdmin) |
+| `01-docker-terraform/docker-sql/pipeline/pyproject.toml` | Python dependencies |
+| `01-docker-terraform/terraform-gcp/main.tf` | GCP resources |
+| `01-docker-terraform/terraform-gcp/variables.tf` | Input variables |
 | `.devcontainer/devcontainer.json` | Codespaces configuration |
 
 ---
@@ -122,11 +122,11 @@ without Enterprise edition using Base64-encoded env vars via Docker Compose
 ### 📁 Key Files
 | File | Description |
 |------|-------------|
-| `'02 workflow orchestration'/flows/04_postgres_taxi.yaml` | ETL pipeline — manual trigger |
-| `'02 workflow orchestration'/flows/05_postgres_taxi_scheduled.yaml` | ETL pipeline — scheduled + backfill |
-| `'02 workflow orchestration'/flows/08_gcp_taxi.yaml` | ELT pipeline — manual trigger |
-| `'02 workflow orchestration'/flows/09_gcp_taxi_scheduled.yaml` | ELT pipeline — scheduled + full backfill |
-| `'02 workflow orchestration'/docker-compose.yaml` | Full stack with Kestra + Postgres + pgAdmin |
+| `02-workflow-orchestration/flows/04_postgres_taxi.yaml` | ETL pipeline — manual trigger |
+| `02-workflow-orchestration/flows/05_postgres_taxi_scheduled.yaml` | ETL pipeline — scheduled + backfill |
+| `02-workflow-orchestration/flows/08_gcp_taxi.yaml` | ELT pipeline — manual trigger |
+| `02-workflow-orchestration/flows/09_gcp_taxi_scheduled.yaml` | ELT pipeline — scheduled + full backfill |
+| `02-workflow-orchestration/docker-compose.yaml` | Full stack with Kestra + Postgres + pgAdmin |
 | `.env.example` | Template for GCP credentials setup |
 
 ---
@@ -191,9 +191,9 @@ workflow; regression, classification, clustering, time series, anomaly detection
 ### 📁 Key Files
 | File | Description |
 |------|-------------|
-| `'03 data warehouse'/big_query_ml.sql` | BigQuery ML examples |
-| `'03 data warehouse'/big_query.sql` | Partitioning and clustering examples |
-| `'03 data warehouse'/model_deploy.md` | ML model deployment notes |
+| `03-data-warehouse/big_query_ml.sql` | BigQuery ML examples |
+| `03-data-warehouse/big_query.sql` | Partitioning and clustering examples |
+| `03-data-warehouse/model_deploy.md` | ML model deployment notes |
 
 ---
 
@@ -248,13 +248,13 @@ reusable SQL functions as single source of truth
 ### 📁 Key Files
 | File | Description |
 |------|-------------|
-| `'04 analytics engineering'/taxi_rides_ny/models/staging/stg_green_tripdata.sql` | Green taxi staging |
-| `'04 analytics engineering'/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql` | Yellow taxi staging |
-| `'04 analytics engineering'/taxi_rides_ny/models/intermediate/int_trips_unioned.sql` | Combined trips |
-| `'04 analytics engineering'/taxi_rides_ny/models/marts/fct_trips.sql` | Fact table |
-| `'04 analytics engineering'/taxi_rides_ny/models/marts/dim_zones.sql` | Zone dimension |
-| `'04 analytics engineering'/taxi_rides_ny/macros/get_payment_type_description.sql` | Payment type macro |
-| `'04 analytics engineering'/ingest.py` | Data download and DuckDB ingestion |
+| `04-analytics-engineering/taxi_rides_ny/models/staging/stg_green_tripdata.sql` | Green taxi staging |
+| `04-analytics-engineering/taxi_rides_ny/models/staging/stg_yellow_tripdata.sql` | Yellow taxi staging |
+| `04-analytics-engineering/taxi_rides_ny/models/intermediate/int_trips_unioned.sql` | Combined trips |
+| `04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql` | Fact table |
+| `04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql` | Zone dimension |
+| `04-analytics-engineering/taxi_rides_ny/macros/get_payment_type_description.sql` | Payment type macro |
+| `04-analytics-engineering/ingest.py` | Data download and DuckDB ingestion |
 ---
 
 ## 📊 Progress
