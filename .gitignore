@@ -287,3 +287,14 @@ __pycache__/
 target/
 dbt_packages/
 logs/
+
+# Spark outputs
+*.parquet
+*.crc
+
+# Spark metadata
+_SUCCESS
+*.snappy.parquet
+
+# Hadoop metadata
+.crc
