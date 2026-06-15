@@ -21,3 +21,6 @@ for MONTH in {1..12}; do
     mkdir -p ${LOCAL_PREFIX}
     wget ${URL} -O ${LOCAL_PATH}
 done
+
+
+#download_data.sh green 2020
