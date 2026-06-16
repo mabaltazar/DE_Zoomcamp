@@ -197,9 +197,9 @@ workflow; regression, classification, clustering, time series, anomaly detection
 
 ---
 
-## 📊 Module 4: Analytics Engineering 🚧
+## 📊 Module 4: Analytics Engineering ✅
 
-### 🏗️ What I'm Building
+### 🏗️ What I Built
 A complete dbt project transforming raw NYC Taxi trip data into a dimensional
 model following Kimball's star schema methodology — staging models, an
 intermediate union layer, dimension tables, and a fact table combining yellow
@@ -244,6 +244,18 @@ reconciling yellow and green taxi schemas; business context in data decisions
 **Seeds and Macros** — CSV lookup tables, Jinja templating,
 reusable SQL functions as single source of truth
 
+**dbt Tests** — singular, source freshness, generic (4 built-ins + custom),
+unit tests (dbt v1.8+), model contracts for schema enforcement
+
+**dbt Documentation** — `schema.yml` descriptions, meta tags,
+`dbt docs generate` + `dbt docs serve`, lineage graph exploration
+
+**dbt Packages** — `dbt-utils`, `dbt-expectations`, `dbt-codegen`,
+surrogate key generation with `dbt_utils.generate_surrogate_key`
+
+**dbt Commands** — full command reference: `dbt build`, `dbt retry`,
+`--select` with graph operators, `--full-refresh`, state selectors
+
 
 ### 📁 Key Files
 | File | Description |
@@ -254,7 +266,10 @@ reusable SQL functions as single source of truth
 | `04-analytics-engineering/taxi_rides_ny/models/marts/fct_trips.sql` | Fact table |
 | `04-analytics-engineering/taxi_rides_ny/models/marts/dim_zones.sql` | Zone dimension |
 | `04-analytics-engineering/taxi_rides_ny/macros/get_payment_type_description.sql` | Payment type macro |
+| `04-analytics-engineering/taxi_rides_ny/packages.yml` | dbt package declarations |
 | `04-analytics-engineering/ingest.py` | Data download and DuckDB ingestion |
+| `04-analytics-engineering/docker-compose.yaml` | Container orchestration |
+| `04-analytics-engineering/.devcontainer/devcontainer.json` | VS Code container attachment |
 ---
 
 ## 📊 Progress
@@ -264,7 +279,7 @@ reusable SQL functions as single source of truth
 | 1 | Containerization & Infrastructure | ✅ Complete |
 | 2 | Workflow Orchestration | ✅ Complete |
 | 3 | Data Warehouse | ✅ Complete |
-| 4 | Analytics Engineering | 🚧 In Progress |
+| 4 | Analytics Engineering | ✅ Complete |
 | 5 | Data Platforms | ⏳ Not Started |
 | 6 | Batch Processing | ⏳ Not Started |
 | 7 | Streaming | ⏳ Not Started |
